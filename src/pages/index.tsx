@@ -2,7 +2,7 @@ import { trpc } from "../utils/trpc";
 
 
 const HomePage = ()=>{
-  const {isLoading,data} = trpc.hello.useQuery()
+  const {isLoading,data} =  trpc.books.getAllBooks.useQuery();
   if(isLoading)return <h1>loading</h1>
   if(!data)return <h1>error</h1>
 
