@@ -50,8 +50,16 @@ const AddBookBook = () => {
   return (
     <div>
       <form className="flex flex-col gap-2" onSubmit={handleFormSubmit}>
-        <input value={form["title"]} name="title" onChange={handleInputChange} />
-        <input value={form["description"]} name="description" onChange={handleInputChange} />
+        <input
+          value={form["title"]}
+          name="title"
+          onChange={handleInputChange}
+        />
+        <input
+          value={form["description"]}
+          name="description"
+          onChange={handleInputChange}
+        />
         <button
           type="submit"
           className="bg-blue-400 text-white font-bold px-4 py-2 rounded-md"
