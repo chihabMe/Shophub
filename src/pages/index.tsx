@@ -7,11 +7,16 @@ const HomePage = () => {
   if (!books) return <h1>error</h1>;
 
   return (
-    <div className="w-full max-w-[500px] mx-auto">
+    <div className="w-full max-w-[500px] mx-auto pt-10">
       <AddBookBook />
-      <ul className="flex flex-col gap-2">
+      <ul className="grid grid-cols-2 gap-2 my-4">
         {books.map((book) => (
-          <li className="py-2 bg-gray-100 text-black text-sm ">{book.title}</li>
+          <li
+            key={book.id}
+            className=" px-2 cursor-pointer hover:ring-2 hover:ring-blue-400 rounded-md  transitoin-all duration-300 py-4 bg-gray-100 text-black text-sm  "
+          >
+            {book.title}
+          </li>
         ))}
       </ul>
     </div>
@@ -48,17 +53,21 @@ const AddBookBook = () => {
     );
   };
   return (
-    <div>
+    <div className="my-8">
       <form className="flex flex-col gap-2" onSubmit={handleFormSubmit}>
         <input
           value={form["title"]}
           name="title"
+          placeholder="title"
           onChange={handleInputChange}
+          className="bg-gray-100 p-2 rounded-md"
         />
         <input
           value={form["description"]}
           name="description"
+          placeholder="description"
           onChange={handleInputChange}
+          className="bg-gray-100 p-2 rounded-md"
         />
         <button
           type="submit"

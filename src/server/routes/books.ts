@@ -1,4 +1,3 @@
-import { prisma } from "@/src/utils/prisma";
 import { publicProcedure, router } from "../trpc";
 import * as z from "zod";
 import { TRPCError } from "@trpc/server";
@@ -16,7 +15,7 @@ export const booksRouter = router({
           message: "no author",
           code: "BAD_REQUEST",
         });
-      return prisma.book.create({
+      return ctx.prisma.book.create({
         data: {
           title: input.title,
           description: input.description,
